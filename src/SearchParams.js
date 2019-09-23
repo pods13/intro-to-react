@@ -5,6 +5,7 @@ import useDropdown from "./useDropdown";
 export default function SearchParams() {
 	const [location, setLocation] = useState("Seattle, WA");
 	const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+	const [breed, BreedDropdown] = useDropdown("Breed", "", []);
 
 	return (
 		<div className="search-params">
@@ -19,6 +20,7 @@ export default function SearchParams() {
 					/>
 				</label>
 				<AnimalDropdown />
+				<BreedDropdown />
 				<button>Submit</button>
 			</form>
 		</div>
