@@ -11,6 +11,7 @@ export default function useDropdown(label, defaultState, options) {
 				value={state}
 				onChange={e => setState(e.target.value)}
 				onBlur={e => setState(e.target.value)}
+				disabled={options.length == 0}
 			>
 				<option value="all">all</option>
 				{options.map(item => (
