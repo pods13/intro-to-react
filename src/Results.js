@@ -12,6 +12,7 @@ export default function Results({ pets }) {
 					return (
 						<Pet
 							key={pet.id}
+							id={pet.id}
 							name={pet.name}
 							animal={pet.type}
 							breed={pet.breeds.primary}

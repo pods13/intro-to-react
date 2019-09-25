@@ -1,12 +1,19 @@
 import React from "react";
 import { render } from "react-dom";
+import { Router, Link } from "@reach/router";
 import SearchParams from "./SearchParams";
+import DetailsPage from "./DetailsPage";
 
 const App = () => {
 	return (
 		<div>
-			<h1>Adopt me!</h1>
-			<SearchParams />
+			<header>
+				<Link to="/">Adopt me!</Link>
+			</header>
+			<Router>
+				<SearchParams path="/" />
+				<DetailsPage path="/details/:id" />
+			</Router>
 		</div>
 	);
 };
