@@ -1,5 +1,6 @@
 import React from "react";
 import Pet from "./Pet";
+import get from "lodash/get";
 
 export default function Results({ pets }) {
 	return (
@@ -8,14 +9,15 @@ export default function Results({ pets }) {
 				<h1>No pets found</h1>
 			) : (
 				pets.map(pet => {
-					const petAddress = pet.contact.address;
+					const petAddress = get(pet, "contact.address", "");
+					const breed = get(pet, "breeds.primary", "");
 					return (
 						<Pet
 							key={pet.id}
 							id={pet.id}
 							name={pet.name}
 							animal={pet.type}
-							breed={pet.breeds.primary}
+							breed={breed}
 							media={pet.photos}
 							location={`${petAddress.city}, ${petAddress.state}`}
 						/>
@@ -25,3 +27,7 @@ export default function Results({ pets }) {
 		</div>
 	);
 }
+
+Results.defaultProps = {
+	pets: []
+};
