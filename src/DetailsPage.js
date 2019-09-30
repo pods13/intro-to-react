@@ -1,6 +1,7 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
 import get from "lodash/get";
+import Carousel from "./Carousel";
 
 export default class DetailsPage extends React.Component {
 	constructor(props) {
@@ -31,9 +32,10 @@ export default class DetailsPage extends React.Component {
 		if (this.state.loading) {
 			return <h1>Loading...</h1>;
 		}
-		const { name, animal, breed, location, description } = this.state;
+		const { name, animal, breed, location, description, media } = this.state;
 		return (
 			<div className="details">
+				<Carousel media={media} />
 				<div>
 					<h1>{name}</h1>
 					<h2>{`${animal} - ${breed} - ${location}`}</h2>
